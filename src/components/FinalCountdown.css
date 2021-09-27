@@ -46,6 +46,30 @@
   padding: 0 3px 0 3px;
 }
 
+.toggleButton:hover {
+  background: darken(dodgerblue, 10%);
+  -webkit-animation: wiggle 0.3s alternate ease infinite;
+  animation: wiggle 0.3s alternate ease infinite;
+}
+
+@-webkit-keyframes wiggle {
+  from {
+    -webkit-transform: rotate(-10deg);
+  }
+  to {
+    -webkit-transform: rotate(10deg);
+  }
+}
+
+@keyframes wiggle {
+  from {
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(10deg);
+  }
+}
+
 .buttonIncrementSeconds {
   grid-column: 3;
   grid-row: 1;
@@ -101,10 +125,61 @@
   font-size: 1.4em;
 }
 
-.displayTimes button {
+.timeDataControls {
   float: right;
+}
+
+.displayTimes button {
   font-size: 1.2em;
   border: none;
   background-color: greenyellow;
   padding: 3px;
+}
+
+.displayTimes table {
+  width: 100%;
+}
+
+/* Tooltip container */
+.tooltip {
+  position: relative;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 100px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  padding: 3px;
+  border-radius: 6px;
+  font-size: 10px;
+
+  /* Position the tooltip text */
+  position: absolute;
+  bottom: 100%;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }

@@ -30,7 +30,7 @@ class FinalCountdown extends React.Component {
     if (!this.state.running) {
       return;
     }
-    if (this.state.counter == 0) {
+    if (this.state.counter === 0) {
       this.setState((state) => {
         return {
           running: !state.running,
@@ -46,7 +46,7 @@ class FinalCountdown extends React.Component {
   }
 
   playPause = () => {
-    if (this.state.counter == 0) {
+    if (this.state.counter === 0) {
       return;
     }
     this.setState((state) => {
@@ -64,7 +64,7 @@ class FinalCountdown extends React.Component {
   };
 
   save = () => {
-    if (this.state.counter == 0) {
+    if (this.state.counter === 0) {
       return;
     }
     this.setState((state) => {
@@ -89,7 +89,7 @@ class FinalCountdown extends React.Component {
   load = (id) => {
     if (!this.state.running) {
       this.setState((state) => {
-        let newTime = state.times.filter((x) => x.id == id);
+        let newTime = state.times.filter((x) => x.id === id);
         return {
           counter: newTime[0].time,
         };
@@ -320,17 +320,21 @@ class FinalCountdown extends React.Component {
           <span className="displayDigits">{f}</span>
         </div>
         <div className="buttonLeft">
-          <button className="controlButton" onClick={this.playPause}>
+          <button className="controlButton tooltip" onClick={this.playPause}>
+            <span className="tooltiptext">Start / Pause timer</span>
+
             {this.state.running ? "⏸️" : "▶️"}
           </button>
         </div>
         <div className="buttonCenter">
-          <button className="controlButton" onClick={this.save}>
+          <button className="controlButton tooltip" onClick={this.save}>
+            <span className="tooltiptext">Save current time</span>
             ✏️
           </button>
         </div>
         <div className="buttonRight">
-          <button className="controlButton" onClick={this.stop}>
+          <button className="controlButton tooltip" onClick={this.stop}>
+            <span className="tooltiptext">Stop timer</span>
             ⏹️
           </button>
         </div>
@@ -340,19 +344,9 @@ class FinalCountdown extends React.Component {
               return (
                 <tr key={x.id}>
                   <td className="timeData">{this.formatTime(x.time)}</td>
-                  <td>
-                    <button
-                      className="buttonTimeData"
-                      onClick={() => this.load(x.id)}
-                    >
-                      🔄
-                    </button>
-                    <button
-                      className="buttonTimeData"
-                      onClick={() => this.delete(x.id)}
-                    >
-                      ✂️
-                    </button>
+                  <td className="timeDataControls">
+                    <button onClick={() => this.load(x.id)}>🔄</button>
+                    <button onClick={() => this.delete(x.id)}>✂️</button>
                   </td>
                 </tr>
               );
