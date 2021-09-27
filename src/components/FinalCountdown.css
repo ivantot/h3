@@ -1,0 +1,110 @@
+.countdown {
+  display: inline-grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: min-content min-content min-content 75px min-content;
+}
+
+.numberDisplay {
+  grid-column: 1 / span 3;
+  grid-row: 2;
+}
+
+.buttonLeft {
+  grid-column: 1;
+  grid-row: 4;
+  margin: auto auto auto 0;
+}
+
+.buttonRight {
+  grid-column: 3;
+  grid-row: 4;
+  margin: auto 0 auto auto;
+}
+
+.buttonCenter {
+  grid-column: 2;
+  grid-row: 4;
+  margin: auto auto auto auto;
+}
+
+.controlButton {
+  width: 50px;
+  height: 50px;
+  font-size: 2em;
+  border: none;
+  background-color: #ffffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.toggleButton {
+  font-size: 1.8em;
+  border: none;
+  color: dodgerblue;
+  background-color: #ffffffff;
+  padding: 0 3px 0 3px;
+}
+
+.buttonIncrementSeconds {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+
+.buttonIncrementMinutes {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+}
+
+.buttonIncrementHours {
+  grid-column: 1;
+  grid-row: 1;
+  justify-self: start;
+}
+.buttonDecrementSeconds {
+  grid-column: 3;
+  grid-row: 3;
+  justify-self: end;
+}
+
+.buttonDecrementMinutes {
+  grid-column: 2;
+  grid-row: 3;
+  justify-self: center;
+}
+
+.buttonDecrementHours {
+  grid-column: 1;
+  grid-row: 3;
+  justify-self: start;
+}
+
+.displayDigits {
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  font-size: 3.5em;
+}
+
+.displayTimes {
+  grid-column: 1 / span 3;
+  grid-row: 5;
+  background-color: greenyellow;
+  border: 3px solid black;
+  border-radius: 5px;
+}
+
+.timeData {
+  font-family: "Roboto Mono", monospace;
+  font-weight: bold;
+  font-size: 1.4em;
+}
+
+.displayTimes button {
+  float: right;
+  font-size: 1.2em;
+  border: none;
+  background-color: greenyellow;
+  padding: 3px;
+}
